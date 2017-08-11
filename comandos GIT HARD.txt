@@ -1,0 +1,63 @@
+Primeira vez que abrir o git
+	git config --global user.name "SEU_NOME"
+	git config --global user.email "SEU_EMAIL"
+	
+Dica : para mudar o caminho padrao do git quando ele abre , deve-se abrir propriedades no git bash e mudar "iniciar em"
+
+git init = inicia um repositorio nas na pasta atual
+git status = mostra o status atual do repositorio
+git add[.] = adiciona arquivos para serem trackeados pelo git
+comentario : quando da um git add os arquivos sao passados para a stage area
+git commit = commita os arquivos
+Criando o arquivo ".gitignore"
+	crie um arquivo com o nome .gitignore
+	dentro do arquivo digite o nome dos arquivos ou paths para serem ignorados
+	exemplo : olamundo.txt ( enter ) src/(isso é uma pasta)(enter) etc...
+	mais um processo sera ignorar o PROPRIO .gitignore
+
+git diff = mostra as alterações feitas nos arquivos que estão na unstage area
+comentario : caso queria ver as mudanças feitas porem os arquivos ja estejam na stage area é necessario adicionar o parametro "--staged"
+git log = mostra todos os commits feitos no projeto
+gitk = mostra um relatorio dos commits em uma interface grafica
+git commit --amend -m "[MENSAGEM]" = altera o ultimo commit (exemplo : foi feito um commit e logo depois foram adicionados novos dados no path, e esses dados deveriam ter ido pro commit feito agora ha pouco, entao use o git add , depois use esse comando e o commit sera sobrescrevido)
+git reset HEAD [nome_do_arquivo] = caso algum algum arquivo estiver na area stage porem ele nao deva ser commitado, use esse comando para retornar o arquivo para a area unstage
+git checkout -- [NOME_DO_ARQUIVO.EXTENSAO] = volta um arquivo para o estado ogirinal (exemplo : existe um arquivo no qual voce adicionou novas funcoes para testar, porem oque foi escrito nao é para estar no arquivo, ou seja, voltar para o estado antes de ser escrito algo nele)
+git rm [NOME_DO_ARQUIVO.EXTENSAO] = remove da area de unstage/unstracked
+comentario : em alguns momentos o git pode dar conflitos por arquivos nao existirem, entao é necessario usar esse comando para retirar esses arquivos da area de rastreamento do git
+git tag = lista todas as tags criadas no sistema
+comentario : tags servem para melhor organizar versoes do projeto (ex:v0.0.01,v0.0.02)
+git tag -a [NOME_TAG] -m [MENSAGEM] = cria uma tag no commit atual
+comentario : para criar uma tag com um commit antigo, o codigo ficara da seguinte maneira : git tag -a [VERSAO] [HASH_DO_COMMIT] -m [MENSAGEM]
+git checkout [NOME_DA_TAG] = vai para a tag(versao) especificada
+git tag -d [NOME_DA_TAG] = deleta a tag
+git branch [NOME_BRANCH] = cria uma branch
+git checkout [NOME_BRANCH] = coloca meus arquivos na branch criada 
+	exemplo usando branches : existe algumas funcoes que tem que ser adicionadas porem nao posso adicionar isso em produção, ou seja, crio uma branch com a versao atual do sistema, coloco as funcoes necessarias nela e testo nessa branch, ao finalizar, se essas funcoes tiverem que ser implementadas na versao principal eu dou um checkout na versao principal e dou um merge.
+git merge [nome_da_branch] = junta as informacoes da branch passada no parametro para a branch atual
+git branch -d [NOME_BRANCH] = deleta a branch
+comentario sobre conflito de branch : se a mesma linha for alterada em 2 branches diferentes, é necessario falar qual alteração é a valida ( exemplo : pessoa 1 esta na branch master[whatever] e alterou a linha x para "ola" e deu um commit , enquanto a pessoa 2 esta na branch 2 e alterou a linha x para "tchau" e deu um commit, quando for juntar a branch 2 com a branch master ira dar um conflito na linha x, e é necessario falar qual alteração é a verdadeira.
+git remote = mostra o nome do servidor remoto
+git push origin master = envia os commits do master para o origin(servidor)
+git clone [caminho] [opicional_NOME_NOVO] = clona um repositorio
+git pull origin master =  traz os dados do servidor( ele faz um merge automatico )
+git fetch origin [NOME_BRANCH] = tras os dados do servidor (nao faz o merge automatico)
+
+Usando GITHUB
+acesse o site do gitHub
+digite o comando ssg key-keygen no git bash
+ira pedir um nome de arquivo ( basta dar um enter )
+ira pedir uma senha (pelas boas praticas e bom ter uma senha)
+ira mostrar o path aonde as chaves foram criadas
+acesse o local indicado e de Ctrl+c no conteudo dentro da chave publica
+va para o gitHub / account settings / ssh keys
+agora podemos criar um repositorio
+
+agora oque vamos fazer ja foi visto com os codigos acima, porem vamos revisar
+
+git clone [link_do_projeto_no_git]
+comentario : outra pessoa que tem acesso ao repositorio baixou e deu um push, entao para atualizar os dados da pessoa que envio é necessario dar um git pull origin master para sincronizar
+
+dica : para ver como um READ-ME é feito, basta abrir algum projeto grande(cake php por exemplo) e ver o cod.fonte do READ-ME(clicando em raw)
+
+
+
